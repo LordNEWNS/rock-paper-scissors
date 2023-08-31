@@ -13,9 +13,19 @@ let RPS = [rock, paper, scissors,]
 //get random variable of rock, paper, or scissors to apply against argument
 let RPSToUse = RPS[Math.floor(Math.random() * RPS.length)];
 console.log(RPSToUse)
-//compare input to RPSToUse and determin winner
+//compare argument to RPSToUse and determin result
+// define draw condition
+if (a === RPSToUse) {
+    return('Draw')
+    //define win condition
+} else if ((a === 'rock' && RPSToUse === 'scissors') 
+|| (a === 'scissors' && RPSToUse === 'paper') 
+|| (a === 'paper' && RPSToUse === 'rock')) {
+    return('You Win!!!')
+    // define loss condition
+} else {
+    return('You loose, sorry try again!')
+}
 
-//make rock beat scissors and lose to paper
-//make scissors beat papper and lose to rock
-//make papper beat rock and lose to scissors
+
 }
