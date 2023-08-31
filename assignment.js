@@ -5,57 +5,98 @@ const scissors = 'scissors'
 //creat varriable for paper 
 const paper = 'paper'
 
-const computerChoice = getComputerChoice()
-const playerSelection = getPlayerSelection()
+// creat variables for compchoice and player choice
+let computerChoice = 'rock'
+let playerSelection = 'paper'
+
+// creat varriables for pc and player wins
+let compWins = 0
+let playerWins = 0
+let draw = 0
 
 // define win and loss messages
 
-const youLose = 'you lose! ' + computerChoice + ' beats ' + playerSelection
-const youWin = playerSelection + ' beats ' + computerChoice + ' YOU WIN!'
-const youDraw = ' we both chose ' + computerChoice + ' its a draw!'
+let youLose = 'you lose! ' + computerChoice + ' beats ' + playerSelection
+let youWin = playerSelection + ' beats ' + computerChoice + ' YOU WIN!'
+let youDraw = ' we both chose ' + computerChoice + ' its a draw!'
 
 // get computer choice
 
 function getComputerChoice () {
     // creat an array using rock paper scissors constants? 
-let RPS = [rock, paper, scissors,]
-//get random variable of rock, paper, or scissors to apply against argument
-let RPSToUse = RPS[Math.floor(Math.random() * RPS.length)];
+    let RPS = [rock, paper, scissors,]
+    //get random variable of rock, paper, or scissors to apply against argument
+    let RPSToUse = RPS[Math.floor(Math.random() * RPS.length)];
+    return(RPSToUse)
+}
 
-return(RPSToUse)
+function replaceComp() {
+
+    computerChoice = getComputerChoice()
+
 }
 
 function getPlayerSelection() {
-    let playerSelection = prompt('rock paper or scissors?', '');
-    return(playerSelection)
+    let choice = prompt('rock paper or scissors?', '');
+    playerSelection = choice
+    return(choice)
+}
+
+function replacePlayer() {
+    playerSelection = getPlayerSelection()
 }
 
 function playRPS (playerSelection, computerChoice) {
+
     // convert playrs input to lowercase
     let c = playerSelection.toLowerCase()
-    let RPSToUse = computerChoice
-    if (c === RPSToUse) {
+    if (c === computerChoice) {
+
         return(youDraw)
         //define win condition
-    } else if ((c === 'rock' && RPSToUse === 'scissors') 
-    || (c === 'scissors' && RPSToUse === 'paper') 
-    || (c === 'paper' && RPSToUse === 'rock')) {
+    } else if ((c === 'rock' && computerChoice === 'scissors') 
+    || (c === 'scissors' && computerChoice === 'paper') 
+    || (c === 'paper' && computerChoice === 'rock')) {
+
         return(youWin)
         // define loss condition
     } else {
         return(youLose)
     }
+    
 }
-console.log(playRPS(playerSelection, computerChoice))
 
-function game () {
+function clearScore() {
+    playerWins = 0;
+    compWins = 0;
+    draw = 0;
+}
 
+
+function game() {
+    clearScore()
     //creat verriable for games played
     // loop game 5 times
-    for (let gamesPlayed = 0; gamesPlayed < 5; gamesPlayed++) {
-        // creat varriables for pc and player wins
-    let compWins = 0
-    let playerWins = 0
+    for (let gamesPlayed = 0; (playerWins < 3 && compWins < 3); gamesPlayed++) {
+        // run the game
+        replacePlayer()
+        replaceComp()
+        playRPS(playerSelection, computerChoice)
+        console.log(playRPS(playerSelection, computerChoice))
+
+    // set conditions for score increase
+
+    if (playRPS(playerSelection, computerChoice) === youWin) {
+       playerWins = ++playerWins;
+        
+    } else if (playRPS(playerSelection, computerChoice) === youLose) {
+       compWins = ++compWins
+        
+    } else {
+       draw = ++draw
+        
+    }
+    console.log('draws ' + draw + '| wins ' + playerWins + '| losses ' + compWins)
 
     }
 
