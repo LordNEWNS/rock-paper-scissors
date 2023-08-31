@@ -14,11 +14,18 @@ let compWins = 0
 let playerWins = 0
 let draw = 0
 
-// define win and loss messages
+// creat message calls
 
-let youLose = 'you lose! ' + computerChoice + ' beats ' + playerSelection
-let youWin = playerSelection + ' beats ' + computerChoice + ' YOU WIN!'
-let youDraw = ' we both chose ' + computerChoice + ' its a draw!'
+function youLose() {
+    return ('you lose! ' + computerChoice + ' beats ' + playerSelection);
+}
+function youWin() {
+    return (playerSelection + ' beats ' + computerChoice + ' YOU WIN!');
+}
+
+function youDraw() {
+    return (' we both chose ' + computerChoice + ' its a draw!');
+}
 
 // get computer choice
 
@@ -52,16 +59,16 @@ function playRPS (playerSelection, computerChoice) {
     let c = playerSelection.toLowerCase()
     if (c === computerChoice) {
 
-        return(youDraw)
+        return(youDraw())
         //define win condition
     } else if ((c === 'rock' && computerChoice === 'scissors') 
     || (c === 'scissors' && computerChoice === 'paper') 
     || (c === 'paper' && computerChoice === 'rock')) {
 
-        return(youWin)
+        return(youWin())
         // define loss condition
     } else {
-        return(youLose)
+        return(youLose())
     }
     
 }
@@ -84,19 +91,19 @@ function game() {
         playRPS(playerSelection, computerChoice)
         console.log(playRPS(playerSelection, computerChoice))
 
-    // set conditions for score increase
+        // set conditions for score increase
 
-    if (playRPS(playerSelection, computerChoice) === youWin) {
-       playerWins = ++playerWins;
+        if (playRPS(playerSelection, computerChoice) === youWin()) {
+            playerWins = ++playerWins;
         
-    } else if (playRPS(playerSelection, computerChoice) === youLose) {
-       compWins = ++compWins
+        } else if (playRPS(playerSelection, computerChoice) === youLose()) {
+            compWins = ++compWins
         
-    } else {
-       draw = ++draw
+        } else {
+            draw = ++draw
         
-    }
-    console.log('draws ' + draw + '| wins ' + playerWins + '| losses ' + compWins)
+        }
+        console.log('draws ' + draw + '| wins ' + playerWins + '| losses ' + compWins)
 
     }
 
