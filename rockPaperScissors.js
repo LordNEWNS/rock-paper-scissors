@@ -1,7 +1,7 @@
 //creat function name
 function rockPaperScissors (a) {
     //display selection
-    console.log(a)
+    console.log('you chose' + a)
     //creat variable for rock
 const rock = 'rock'
 //creat varriable for scissors
@@ -12,7 +12,7 @@ const paper = 'paper'
 let RPS = [rock, paper, scissors,]
 //get random variable of rock, paper, or scissors to apply against argument
 let RPSToUse = RPS[Math.floor(Math.random() * RPS.length)];
-console.log(RPSToUse)
+console.log('we chose ' + RPSToUse)
 //compare argument to RPSToUse and determin result
 // define draw condition
 if (a === RPSToUse) {
