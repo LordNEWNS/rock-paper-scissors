@@ -106,8 +106,20 @@ function game() {
         console.log('draws ' + draw + '| wins ' + playerWins + '| losses ' + compWins)
 
     }
-
-    
-    
 }
 
+// creat function to call game() and mesure total score and declare winner
+
+function startGame() {
+    //calls game
+    game()
+    //mesure score and compare 
+    if (playerWins > compWins) {
+        // creat win message
+        console.log('Congradulations! you win witha  score of ' + playerWins + ' VS ' + compWins)
+    } else {
+        //creat loss message
+        console.log('Sorry! you lose ' + compWins + ' to ' + playerWins)
+    }
+
+}
