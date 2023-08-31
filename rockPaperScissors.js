@@ -1,13 +1,15 @@
-//creat function name
-function rockPaperScissors (a) {
-    //display selection
-    console.log('you chose' + a)
-    //creat variable for rock
+//creat variable for rock
 const rock = 'rock'
 //creat varriable for scissors
 const scissors = 'scissors'
 //creat varriable for paper 
 const paper = 'paper'
+
+//creat function name
+function rockPaperScissors (a) {
+    //display selection
+    console.log('you chose' + a)
+    
 // creat an array using rock paper scissors constants? 
 let RPS = [rock, paper, scissors,]
 //get random variable of rock, paper, or scissors to apply against argument
