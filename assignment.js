@@ -84,7 +84,7 @@ function game() {
     clearScore()
     //creat verriable for games played
     // loop game 5 times
-    for (let gamesPlayed = 0; (playerWins < 3 && compWins < 3); gamesPlayed++) {
+    while (playerWins < 3 && compWins < 3) {
         // run the game
         replacePlayer()
         replaceComp()
