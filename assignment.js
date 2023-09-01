@@ -1,13 +1,13 @@
 //creat variable for rock
-const rock = 'rock'
+const rock = 'rock';
 //creat varriable for scissors
-const scissors = 'scissors'
+const scissors = 'scissors';
 //creat varriable for paper 
-const paper = 'paper'
+const paper = 'paper';
 
 // creat variables for compchoice and player choice
-let computerChoice = 'rock'
-let playerSelection = 'paper'
+let computerChoice = 'rock';
+let playerSelection = 'paper';
 
 // creat varriables for pc and player wins
 let compWins = 0;
@@ -59,7 +59,7 @@ function playRPS (playerSelection, computerChoice) {
     let c = playerSelection.toLowerCase()
     if (c === computerChoice) {
 
-        return(youDraw())
+        return(youDraw());
         //define win condition
     } else if ((c === 'rock' && computerChoice === 'scissors') 
     || (c === 'scissors' && computerChoice === 'paper') 
@@ -88,22 +88,23 @@ function game() {
         // run the game
         replacePlayer()
         replaceComp()
-        playRPS(playerSelection, computerChoice)
-        console.log(playRPS(playerSelection, computerChoice));
+        // creat variable to store resault of the game
+        let resaultOfGame = playRPS(playerSelection, computerChoice);
+        console.log(resaultOfGame);
 
         // set conditions for score increase
 
-        if (playRPS(playerSelection, computerChoice) === youWin()) {
+        if (resaultOfGame === youWin()) {
             playerWins = ++playerWins;
         
-        } else if (playRPS(playerSelection, computerChoice) === youLose()) {
-            compWins = ++compWins
+        } else if (resaultOfGame === youLose()) {
+            compWins = ++compWins;
         
         } else {
-            draw = ++draw
+            draw = ++draw;
         
         }
-        console.log('draws ' + draw + '| wins ' + playerWins + '| losses ' + compWins)
+        console.log('draws ' + draw + '| wins ' + playerWins + '| losses ' + compWins);
 
     }
 }
