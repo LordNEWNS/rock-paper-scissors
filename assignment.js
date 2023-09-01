@@ -10,9 +10,9 @@ let computerChoice = 'rock'
 let playerSelection = 'paper'
 
 // creat varriables for pc and player wins
-let compWins = 0
-let playerWins = 0
-let draw = 0
+let compWins = 0;
+let playerWins = 0;
+let draw = 0;
 
 // creat message calls
 
@@ -31,26 +31,26 @@ function youDraw() {
 
 function getComputerChoice () {
     // creat an array using rock paper scissors constants? 
-    let RPS = [rock, paper, scissors,]
+    let RPS = [rock, paper, scissors,];
     //get random variable of rock, paper, or scissors to apply against argument
     let RPSToUse = RPS[Math.floor(Math.random() * RPS.length)];
-    return(RPSToUse)
+    return(RPSToUse);
 }
 
 function replaceComp() {
 
-    computerChoice = getComputerChoice()
+    computerChoice = getComputerChoice();
 
 }
 
 function getPlayerSelection() {
     let choice = prompt('rock paper or scissors?', '');
-    playerSelection = choice
-    return(choice)
+    playerSelection = choice;
+    return(choice);
 }
 
 function replacePlayer() {
-    playerSelection = getPlayerSelection()
+    playerSelection = getPlayerSelection();
 }
 
 function playRPS (playerSelection, computerChoice) {
@@ -65,10 +65,10 @@ function playRPS (playerSelection, computerChoice) {
     || (c === 'scissors' && computerChoice === 'paper') 
     || (c === 'paper' && computerChoice === 'rock')) {
 
-        return(youWin())
+        return(youWin());
         // define loss condition
     } else {
-        return(youLose())
+        return(youLose());
     }
     
 }
@@ -89,7 +89,7 @@ function game() {
         replacePlayer()
         replaceComp()
         playRPS(playerSelection, computerChoice)
-        console.log(playRPS(playerSelection, computerChoice))
+        console.log(playRPS(playerSelection, computerChoice));
 
         // set conditions for score increase
 
@@ -112,14 +112,14 @@ function game() {
 
 function startGame() {
     //calls game
-    game()
+    game();
     //mesure score and compare 
     if (playerWins > compWins) {
         // creat win message
-        console.log('Congradulations! you win witha  score of ' + playerWins + ' VS ' + compWins)
+        console.log('Congradulations! you win with a score of ' + playerWins + ' VS ' + compWins);
     } else {
         //creat loss message
-        console.log('Sorry! you lose ' + compWins + ' to ' + playerWins)
+        console.log('Sorry! you lose ' + compWins + ' to ' + playerWins);
     }
 
 }
