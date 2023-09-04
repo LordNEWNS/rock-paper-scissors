@@ -20,6 +20,8 @@ const bod = document.getElementById('bod');
         if (e.target.classList.contains('btn')) {
             playerChoice = e.target.id;
             playRound();
+        } else if (e.target.id === 'NEWGAME') {
+            location.reload()
         }
     });
 
