@@ -40,6 +40,7 @@ playThisManyTimes.addEventListener('keyup', function(e) {
     
 });
 
+// removes rounds input and replaces with buttons
 function goToGame() {
     const bod = document.getElementById('bod');
     const rockButton = document.createElement('button');
@@ -62,11 +63,15 @@ function goToGame() {
     bod.appendChild(scisorButton);
 }
 
+// checks if wins or losses is = the number of rounds required to win
+
 function isGameOver() {
     console.log(playerWins, playerLosses, numberOfRounds)
     const bod = document.getElementById('bod')
     const title = document.getElementById('title')
     if (numberOfRounds === playerWins || numberOfRounds === playerLosses) {
+
+        // if it is removes selection options & replaces with new game button
         while (bod.firstChild) {
             bod.removeChild(bod.firstChild);
         };
@@ -75,13 +80,16 @@ function isGameOver() {
         button.setAttribute('id', 'NEWGAME');
         bod.appendChild(button);
 
+        // changes the large text to game over mesage
         title.textContent = getGameOverMessage();
         if (playerWins > playerLosses) {
-            title,color = winColor
-        } else title.color = lossColor
+            title,color = winColor;
+        } else title.color = lossColor;
 
     }
 };
+
+// messages 
 
 function getGameOverMessage() {
     if (playerWins > playerLosses) {
@@ -90,24 +98,24 @@ function getGameOverMessage() {
         return('OOF you lost ' + playerLosses + ' to ' + playerWins)
     }
 };
-
 function getWinMessage() {
     return('You win! ' + playerChoice + ' beats ' + compChoice);
 };
-
 function getLossMessage() {
     return('You lose! ' + compChoice + ' beats ' + playerChoice);
 };
-
 function getDrawMessage() {
     return('We both chose ' + playerChoice + ' draw!');
 };
+
 
 function getCompChoice() {
     let choiceArray = [rock, paper, scissors,];
     compChoice = choiceArray[Math.floor(Math.random() * choiceArray.length)];
     return(compChoice);
 };
+
+// gets the computers choice then checks it against the players to determin winner
 
 function playRound() {
     getCompChoice(); 
