@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+}
+.bod {
+    display: flex;
+    gap: 150px;
+    justify-content: center;
+    padding-top: 150px;
+}
+
+.player {
+    height: 150px;
+    width: 150px;
+    border: solid white 3px;
+    border-radius: 30px;
+    background-color: rgb(17, 17, 17);
+    color: rgb(209, 216, 223);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    box-shadow: 9px rgb(209, 216, 223);
+}
