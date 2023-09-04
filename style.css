@@ -102,9 +102,17 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Black Ops One', cursive, sans-serif;
     font-size: 24px;
+    transition: ease-out 0.3s;
     -webkit-text-stroke: 1px rgb(0, 0, 0);
     box-shadow: 0 0 15px 10px rgba(209, 216, 223, 0.24);
+}
+
+.btn:hover {
+    background-color: white;
+    mix-blend-mode: difference;
+    width: 260px;
 }
 
 .headerFooter {
