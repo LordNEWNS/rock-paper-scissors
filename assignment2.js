@@ -1,4 +1,4 @@
-const playerSelection = document.querySelectorAll('.btn');
+const playThisManyTimes = document.getElementById('thisMany')
 const rock = 'ROCK';
 const paper = 'PAPER';
 const scissors = 'SCISSORS';
@@ -14,15 +14,54 @@ const winColor = 'greenyellow'
 const lossColor = 'rgb(109, 30, 6)'
 const tieColor = 'grey'
 
-playerSelection.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        playerChoice = e.target.id;
-        console.log(playerChoice);
-        playRound();
+
+const bod = document.getElementById('bod');
+    bod.addEventListener('click', (e) => {
+        if (e.target.classList.contains('btn')) {
+            playerChoice = e.target.id;
+            playRound();
+        }
     });
+
+
+playThisManyTimes.addEventListener('keyup', function(e) {
+    if (e.key === 'Enter') {
+        const numberEntered = parseFloat(playThisManyTimes.value);
+        if (isNaN(numberEntered) || numberEntered < 1) {
+            alert('Please enter a number above 0')
+        } else {
+            numberOfRounds = numberEntered;
+        }
+        playThisManyTimes.value = '';
+        goToGame()
+    }
+    
 });
 
-function isGameOver(numberOfRounds) {
+function goToGame() {
+    const bod = document.getElementById('bod');
+    const rockButton = document.createElement('button');
+    const paperButton = document.createElement('button');
+    const scisorButton = document.createElement('button');
+    rockButton.setAttribute('id', 'ROCK');
+    rockButton.textContent = 'ROCK!';
+    rockButton.classList.add('btn')
+    paperButton.setAttribute('id', 'PAPER');
+    paperButton.textContent = 'PAPER!';
+    paperButton.classList.add('btn')
+    scisorButton.setAttribute('id', 'SCISSORS');
+    scisorButton.textContent = 'SCISSORS!';
+    scisorButton.classList.add('btn')
+    while (bod.firstChild) {
+        bod.removeChild(bod.firstChild);
+    };
+    bod.appendChild(rockButton);
+    bod.appendChild(paperButton);
+    bod.appendChild(scisorButton);
+}
+
+function isGameOver() {
+    console.log(playerWins, playerLosses, numberOfRounds)
     const bod = document.getElementById('bod')
     const title = document.getElementById('title')
     if (numberOfRounds === playerWins || numberOfRounds === playerLosses) {
@@ -115,4 +154,5 @@ function playRound() {
         setTimeout(() => {e2.textContent = getLossMessage()}, dellayInMs);
         e2.style.color = lossColor;
     };
+    isGameOver()
 };
