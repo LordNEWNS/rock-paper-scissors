@@ -40,7 +40,6 @@ function playRound() {
     getCompChoice(); 
     if (playerChoice === compChoice) {
         ++draws;
-        let draw = getDrawMessage();
         
         // change game status message
         let e = document.getElementById('showMessage');
@@ -57,13 +56,11 @@ function playRound() {
         let e2 = document.getElementById('showMessage2');
         setTimeout(() => {e2.textContent = getDrawMessage()}, dellayInMs);
         e2.style.color = 'grey';
-        return(draw);
     } else if 
     ((playerChoice === rock && compChoice == scissors)
     || (playerChoice === scissors && compChoice == paper) 
     || (playerChoice === paper && compChoice === rock)) {
         ++playerWins;
-        let win = getWinMessage();
         let e = document.getElementById('showMessage');
         e.textContent = '';
         setTimeout(() => {e.textContent = 'WIN!'}, dellayInMs);
@@ -76,11 +73,8 @@ function playRound() {
         let e2 = document.getElementById('showMessage2');
         setTimeout(() => {e2.textContent = getWinMessage()}, dellayInMs);
         e2.style.color = 'greenyellow';
-        return(win);
     } else {
         ++playerLosses;
-        let loss = getLossMessage();
-        console.log(loss);
         let e = document.getElementById('showMessage');
         e.textContent = '';
         setTimeout(() => {e.textContent = 'LOSS'}, dellayInMs); 
@@ -93,6 +87,5 @@ function playRound() {
         let e2 = document.getElementById('showMessage2');
         setTimeout(() => {e2.textContent = getLossMessage()}, dellayInMs);
         e2.style.color = 'rgb(109, 30, 6)';
-        return(loss);
     }
 };
