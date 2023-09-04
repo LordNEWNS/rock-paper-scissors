@@ -15,6 +15,24 @@ body {
     flex: 1;
 }
 
+#ROCK,
+#PAPER,
+#SCISSORS {
+    background-position: center;
+}
+
+#SCISSORS {
+    background-image: url(./imgs/scissors.png);
+}
+
+#PAPER {
+    background-image: url(./imgs/paper.png);
+}
+
+#ROCK {
+    background-image: url(./imgs/rock.png);
+}
+
 .title h1 {
     font-size: 70px;
     -webkit-text-stroke: 4px rgb(0, 0, 0);
