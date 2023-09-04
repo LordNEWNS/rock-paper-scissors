@@ -1,7 +1,7 @@
 const playerSelection = document.querySelectorAll('.btn');
-const rock = document.querySelector('#ROCK');
-const paper = document.querySelector('#PAPER');
-const scissors = document.querySelector('#SCISSORS');
+const rock = 'ROCK';
+const paper = 'PAPER';
+const scissors = 'SCISSORS';
 let compChoice;
 let playerChoice;
 let playerWins = 0;
