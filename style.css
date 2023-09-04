@@ -13,7 +13,7 @@ body {
     display: flex;
     gap: 150px;
     justify-content: center;
-    padding-top: 150px;
+    padding-top: 0px;
     flex: 1;
 }
 
@@ -90,6 +90,14 @@ a {
     justify-content: center;
     align-items: center;
     
+}
+
+#message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    font-size: 80px;
 }
 
 .btn {
