@@ -104,7 +104,8 @@ a {
     font-size: 80px;
 }
 
-.btn {
+.btn,
+#NEWGAME {
     height: 200px;
     width: 200px;
     border: solid white 3px;
@@ -121,7 +122,8 @@ a {
     box-shadow: 0 0 15px 10px rgba(209, 216, 223, 0.24);
 }
 
-.btn:hover {
+.btn:hover, 
+#NEWGAME {
     background-color: white;
     mix-blend-mode: difference;
     width: 260px;
