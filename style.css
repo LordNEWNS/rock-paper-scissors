@@ -37,5 +37,5 @@ body {
     align-items: center;
     justify-content: center;
     font-size: large;
-    box-shadow: 30px rgb(209, 216, 223);
+    box-shadow: 0 0 15px 10px rgba(209, 216, 223, 0.24);
 }
