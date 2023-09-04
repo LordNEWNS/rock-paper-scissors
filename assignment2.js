@@ -21,7 +21,7 @@ const bod = document.getElementById('bod');
             playerChoice = e.target.id;
             playRound();
         } else if (e.target.id === 'NEWGAME') {
-            location.reload()
+            location.reload() // refreshes page clearing game
         }
     });
 
