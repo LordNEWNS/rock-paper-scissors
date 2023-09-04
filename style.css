@@ -3,6 +3,38 @@ input::-webkit-inner-spin-button {
     display: none;
 }
 
+.creditBox {
+   border: dotted 10px white;
+   z-index: 9;
+   max-height: 800px;
+   flex: 1;
+   height: 60vh;
+   width: 50vw;
+   max-width: 600px;
+   display: flex;
+   align-self: center;
+   padding: 20px; 
+   margin-top: 250px;
+   position: absolute;
+   background-color: rgba(255, 255, 255, 0.048);
+   flex-direction: column;
+   font-family: 'Permanent Marker', cursive, sans-serif;
+}
+
+.creditBox li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+    font-size: 20px;
+    
+}
+
+.cred {
+    height: 70px;
+    width: 70px;
+    background-color: rgba(255, 255, 255, 0.185);
+}
+
 body {
     background-color: black;
     color: white;
