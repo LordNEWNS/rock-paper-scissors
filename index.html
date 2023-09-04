@@ -15,33 +15,34 @@
         </div>
 
         <div class="title">
-            <h1>Rock, Paper, or Scisors?</h1>
+            <h1 id="title">Rock, Paper, or Scisors?</h1>
         </div>
 
         <div id="message">
             <p id="showMessage"></p>
         </div>
 
-        <div class="bod">
-            <button id="ROCK" class="btn">ROCK!</button>
-            <button id="PAPER" class="btn">PAPER!</button>
-            <button id="SCISSORS" class="btn">SCISSORS!</button>
+        <div id="bod" class="bod">
+            <div id="howMany">
+                <h3>Best of?</h3>
+                <input type="number" id="thisMany">
+            </div>
         </div>
 
         <div class="scoreboard">
             <div class="score" id="playerscore">
                 <p class="who">YOU</p>
-                <p>0</p>
+                <p  id="win">0</p>
             </div>
             
             <div class="score" id="tiescore">
                 <p class="who">TIE</p>
-                <p>0</p>
+                <p id="tie">0</p>
             </div>
 
             <div class="score" id="compscore">
                 <p class="who">NPC</p>
-                <p>0</p>
+                <p id="lose">0</p>
             </div>
         </div>
         <div class="filler">
