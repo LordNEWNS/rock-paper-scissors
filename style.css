@@ -2,40 +2,65 @@ body {
     background-color: black;
     color: white;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
 }
 .bod {
     display: flex;
     gap: 150px;
     justify-content: center;
     padding-top: 150px;
+    flex: 1;
 }
 
 .title h1 {
     font-size: 70px;
+    -webkit-text-stroke: 4px rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .title {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .title,
-.player {
+.btn {
     font-family: 'Black Ops One', cursive, sans-serif;
     letter-spacing: .25rem;
+    
 }
 
 .btn {
-    height: 170px;
-    width: 170px;
+    height: 200px;
+    width: 200px;
     border: solid white 3px;
     border-radius: 30px;
     background-color: rgb(17, 17, 17);
-    color: rgb(209, 216, 223);
+    color: rgb(219, 228, 236);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: large;
+    font-size: 24px;
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
     box-shadow: 0 0 15px 10px rgba(209, 216, 223, 0.24);
+}
+
+.white {
+    flex: 1;
+    height: 2vh;
+    background-color: white;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+
+.headerFooter {
+    display: flex;
+    gap: 5vw;
+    margin: 0;
 }
