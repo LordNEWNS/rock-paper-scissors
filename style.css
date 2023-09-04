@@ -1,5 +1,7 @@
 body {
     background-color: black;
+    color: white;
+    font-family: 'Roboto', sans-serif;
 }
 .bod {
     display: flex;
@@ -8,9 +10,25 @@ body {
     padding-top: 150px;
 }
 
+.title h1 {
+    font-size: 70px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title,
 .player {
-    height: 150px;
-    width: 150px;
+    font-family: 'Black Ops One', cursive, sans-serif;
+    letter-spacing: .25rem;
+}
+
+.btn {
+    height: 170px;
+    width: 170px;
     border: solid white 3px;
     border-radius: 30px;
     background-color: rgb(17, 17, 17);
@@ -19,5 +37,5 @@ body {
     align-items: center;
     justify-content: center;
     font-size: large;
-    box-shadow: 9px rgb(209, 216, 223);
+    box-shadow: 30px rgb(209, 216, 223);
 }
