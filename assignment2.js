@@ -4,6 +4,9 @@ const paper = document.querySelector('#PAPER');
 const scissors = document.querySelector('#SCISSORS');
 let compChoice;
 let playerChoice;
+let playerWins = 0;
+let playerLosses = 0;
+let draws = 0;
 
 playerSelection.forEach(btn => {
     btn.addEventListener('click', (e) => {
