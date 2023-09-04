@@ -6,6 +6,8 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
+    font-family: 'Black Ops One', cursive, sans-serif;
+    letter-spacing: .25rem;
 }
 .bod {
     display: flex;
@@ -13,6 +15,48 @@ body {
     justify-content: center;
     padding-top: 150px;
     flex: 1;
+}
+
+.filler {
+    flex: 1;
+    padding-bottom: 15vh;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding: 60px 0px;
+    background: repeating-linear-gradient(110deg, rgba(255, 255, 255, 0.144), rgba(255, 255, 255, 0.144) 6%, black 6%, black 12%);
+}
+
+.score .who {
+    position: absolute;
+    top: -190px;
+    color: white;
+}
+
+a {
+    color: rgb(255, 255, 255);
+    mix-blend-mode: difference;
+    font-size: 16;
+    text-decoration: none;
+}
+
+.score {
+    display: flex;
+    flex: 0 1 auto;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border: dashed black 15px;
+    width: 150px;
+    height: 150px;
+    color: black;
+    font-size: 90px;
+    overflow: visible;
+    position: relative;
+    box-shadow: 0 0 15px 10px rgba(209, 216, 223, 0.24);
 }
 
 #ROCK,
@@ -37,19 +81,14 @@ body {
     font-size: 70px;
     -webkit-text-stroke: 4px rgb(0, 0, 0);
     color: rgb(255, 255, 255);
+    margin-top: 84px;
+    margin-bottom: 10px;
 }
 
 .title {
     display: flex;
     justify-content: center;
     align-items: center;
-    
-}
-
-.title,
-.btn {
-    font-family: 'Black Ops One', cursive, sans-serif;
-    letter-spacing: .25rem;
     
 }
 
@@ -69,7 +108,17 @@ body {
 }
 
 .headerFooter {
+    display: flex;
     height: 2vh;
     background-color: white;
     background: repeating-linear-gradient(70deg, white, white 6%, black 6%, black 12%);
+}
+
+#footer {
+    justify-content: end;
+    align-items: center;
+}
+
+#header a {
+    font-size: 24px;
 }
