@@ -42,7 +42,6 @@ playThisManyTimes.addEventListener('keyup', function(e) {
 
 // removes rounds input and replaces with buttons
 function goToGame() {
-    const bod = document.getElementById('bod');
     const rockButton = document.createElement('button');
     const paperButton = document.createElement('button');
     const scisorButton = document.createElement('button');
@@ -55,9 +54,7 @@ function goToGame() {
     scisorButton.setAttribute('id', 'SCISSORS');
     scisorButton.textContent = 'SCISSORS!';
     scisorButton.classList.add('btn')
-    while (bod.firstChild) {
-        bod.removeChild(bod.firstChild);
-    };
+    clearBod()
     bod.appendChild(rockButton);
     bod.appendChild(paperButton);
     bod.appendChild(scisorButton);
@@ -67,14 +64,11 @@ function goToGame() {
 
 function isGameOver() {
     console.log(playerWins, playerLosses, numberOfRounds)
-    const bod = document.getElementById('bod')
     const title = document.getElementById('title')
     if (numberOfRounds === playerWins || numberOfRounds === playerLosses) {
 
         // if it is removes selection options & replaces with new game button
-        while (bod.firstChild) {
-            bod.removeChild(bod.firstChild);
-        };
+        clearBod()
         const button = document.createElement('button');
         button.textContent = 'NEW GAME';
         button.setAttribute('id', 'NEWGAME');
@@ -114,6 +108,16 @@ function getCompChoice() {
     compChoice = choiceArray[Math.floor(Math.random() * choiceArray.length)];
     return(compChoice);
 };
+
+function backToStart() {
+    clearBod()
+}
+
+function clearBod() {
+    while (bod.firstChild) {
+        bod.removeChild(bod.firstChild);
+    };
+}
 
 // gets the computers choice then checks it against the players to determin winner
 
