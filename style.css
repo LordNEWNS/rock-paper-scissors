@@ -50,17 +50,8 @@ body {
     box-shadow: 0 0 15px 10px rgba(209, 216, 223, 0.24);
 }
 
-.white {
-    flex: 1;
+.headerFooter {
     height: 2vh;
     background-color: white;
-    margin-top: 0;
-    margin-bottom: 0;
-
-}
-
-.headerFooter {
-    display: flex;
-    gap: 5vw;
-    margin: 0;
+    background: repeating-linear-gradient(70deg, white, white 6%, black 6%, black 12%);
 }
