@@ -1,3 +1,8 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
 body {
     background-color: black;
     color: white;
@@ -65,8 +70,14 @@ a {
 
 #ROCK,
 #PAPER,
-#SCISSORS {
+#SCISSORS,
+#NEWGAME {
     background-position: center;
+}
+
+#NEWGAME {
+    background-size: 280px 280px; 
+    background-image: url(./imgs/noun-rock-paper-scissors-2699125\ \(1\).png);
 }
 
 #SCISSORS {
@@ -105,6 +116,8 @@ a {
 }
 
 .btn,
+#NEWGAME,
+#howMany,
 #NEWGAME {
     height: 200px;
     width: 200px;
@@ -122,8 +135,23 @@ a {
     box-shadow: 0 0 15px 10px rgba(209, 216, 223, 0.24);
 }
 
+h3 {
+    margin-top: 0;
+}
+
+#howMany {
+    flex-direction: column;
+    text-align: center;
+    mix-blend-mode: difference;
+}
+#thisMany {
+    padding-top: 0;
+    margin-top: 0;
+}
+
 .btn:hover, 
-#NEWGAME {
+#NEWGAME:hover,
+#howMany:hover {
     background-color: white;
     mix-blend-mode: difference;
     width: 260px;
