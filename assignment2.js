@@ -69,7 +69,6 @@ function goToGame() {
 // checks if wins or losses is = the number of rounds required to win
 
 function isGameOver() {
-    console.log(playerWins, playerLosses, numberOfRounds)
     if (numberOfRounds === playerWins || numberOfRounds === playerLosses) {
 
         // this removes selection options & replaces with new game button
