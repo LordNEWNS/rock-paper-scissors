@@ -13,6 +13,9 @@ let numberOfRounds = 0;
 const winColor = 'greenyellow'
 const lossColor = 'rgb(109, 30, 6)'
 const tieColor = 'grey'
+const title = document.getElementById('title')
+const messageTop = document.getElementById('showMessage');
+const messageBottom = document.getElementById('showMessage2');
 
 
 const bod = document.getElementById('bod');
@@ -67,10 +70,9 @@ function goToGame() {
 
 function isGameOver() {
     console.log(playerWins, playerLosses, numberOfRounds)
-    const title = document.getElementById('title')
     if (numberOfRounds === playerWins || numberOfRounds === playerLosses) {
 
-        // if it is removes selection options & replaces with new game button
+        // this removes selection options & replaces with new game button
         clearBod()
         const button = document.createElement('button');
         button.textContent = 'NEW GAME';
@@ -80,8 +82,10 @@ function isGameOver() {
         // changes the large text to game over mesage
         title.textContent = getGameOverMessage();
         if (playerWins > playerLosses) {
-            title.color = winColor;
-        } else title.color = lossColor;
+            title.style.color = winColor;
+        } else {
+            title.style.color = lossColor;
+        }
 
     }
 };
@@ -129,6 +133,8 @@ function backToStart() {
     inputRoundsHere.setAttribute('id', 'thisMany');
     howManyCard.appendChild(inputRoundsHere);
     bod.appendChild(howManyCard);
+    title.textContent = 'Rock, Paper, or Scissors?';
+    title.style.color = 'white';
 
 }
 
@@ -169,37 +175,36 @@ function updateScoreBoard () {
 
 function playRound() {
     getCompChoice(); 
-    let e = document.getElementById('showMessage');
-    e.textContent = '';
-    let e2 = document.getElementById('showMessage2');
+    messageTop.textContent = '';
+    messageBottom.textContent = '';
     if (playerChoice === compChoice) {
         ++draws;
         
-        setTimeout(() => {e.textContent = 'TIE!'}, dellayInMs);
-        e.style.color = tieColor;
+        setTimeout(() => {messageTop.textContent = 'TIE!'}, dellayInMs);
+        messageTop.style.color = tieColor;
 
         // change bottom message
-        setTimeout(() => {e2.textContent = getDrawMessage()}, dellayInMs);
-        e2.style.color = tieColor;
+        setTimeout(() => {messageBottom.textContent = getDrawMessage()}, dellayInMs);
+        messageBottom.style.color = tieColor;
     } else if 
     ((playerChoice === rock && compChoice == scissors)
     || (playerChoice === scissors && compChoice == paper) 
     || (playerChoice === paper && compChoice === rock)) {
         ++playerWins;
         
-        setTimeout(() => {e.textContent = 'WIN!'}, dellayInMs);
-        e.style.color = winColor;
+        setTimeout(() => {messageTop.textContent = 'WIN!'}, dellayInMs);
+        messageTop.style.color = winColor;
 
-        setTimeout(() => {e2.textContent = getWinMessage()}, dellayInMs);
-        e2.style.color = winColor;
+        setTimeout(() => {messageBottom.textContent = getWinMessage()}, dellayInMs);
+        messageBottom.style.color = winColor;
     } else {
         ++playerLosses;
         
-        setTimeout(() => {e.textContent = 'LOSS'}, dellayInMs); 
-        e.style.color = lossColor;
+        setTimeout(() => {messageTop.textContent = 'LOSS'}, dellayInMs); 
+        messageTop.style.color = lossColor;
 
-        setTimeout(() => {e2.textContent = getLossMessage()}, dellayInMs);
-        e2.style.color = lossColor;
+        setTimeout(() => {messageBottom.textContent = getLossMessage()}, dellayInMs);
+        messageBottom.style.color = lossColor;
     };
     updateScoreBoard()
     isGameOver()
