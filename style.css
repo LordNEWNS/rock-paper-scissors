@@ -45,7 +45,6 @@ body {
     margin: 0;
     font-family: 'Black Ops One', cursive, sans-serif;
     letter-spacing: .25rem;
-    max-height: 100vh;
 }
 .bod {
     display: flex;
@@ -82,7 +81,7 @@ body {
 a {
     color: rgb(255, 255, 255);
     mix-blend-mode: difference;
-    font-size: 16;
+    font-size: 16px;
     text-decoration: none;
 }
 
@@ -210,8 +209,9 @@ h3 {
 #footer {
     justify-content: end;
     align-items: center;
+    min-height: 20px;
 }
 
 #header a {
-    font-size: 24px;
+    font-size: 16px;
 }
