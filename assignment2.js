@@ -140,21 +140,24 @@ function clearBod() {
 
 function updateScoreBoard () {
     let t = document.getElementById('tie');
-    setTimeout(() => {t.textContent = draws}, dellayInMs);
     if (draws > 0) {
-        t.style.color = tieColor;
+        setTimeout(() => {t.style.color = tieColor}, dellayInMs);
+        setTimeout(() => {t.textContent = draws}, dellayInMs);
     };
     let w = document.getElementById('win');
-    setTimeout(() => {w.textContent = playerWins}, dellayInMs);
     if (playerWins > 0) {
-        w.style.color = winColor;
+        setTimeout(() => {w.style.color = winColor}, dellayInMs);
+        setTimeout(() => {w.textContent = playerWins}, dellayInMs);
     };
     let l = document.getElementById('lose');
-    setTimeout(() => {l.textContent = playerLosses}, dellayInMs);
     if (playerLosses > 0) {
-        l.style.color = lossColor;
+        setTimeout(() => {l.textContent = playerLosses}, dellayInMs);
+        setTimeout(() => {l.style.color = lossColor}, dellayInMs);
     };
     if (playerWins === 0 && draws === 0 && playerLosses === 0) {
+        t.textContent = draws
+        w.textContent = playerWins
+        l.textContent = playerLosses
         l.style.color = 'black';
         t.style.color = 'black';
         w.style.color = 'black';
