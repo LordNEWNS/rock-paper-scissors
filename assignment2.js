@@ -74,6 +74,7 @@ function isGameOver() {
 
         // this removes selection options & replaces with new game button
         clearBod()
+        setTimeout(() => {messageTop.textContent = ''}, dellayInMs + 5);
         const button = document.createElement('button');
         button.textContent = 'NEW GAME';
         button.setAttribute('id', 'NEWGAME');
@@ -83,8 +84,10 @@ function isGameOver() {
         title.textContent = getGameOverMessage();
         if (playerWins > playerLosses) {
             title.style.color = winColor;
+            setTimeout(() => {messageBottom.textContent = 'NICE! NICE! NICE!'}, dellayInMs + 5);
         } else {
             title.style.color = lossColor;
+            setTimeout(() => {messageBottom.textContent = 'Try Agian?'}, dellayInMs + 5);
         }
 
     }
@@ -135,6 +138,8 @@ function backToStart() {
     bod.appendChild(howManyCard);
     title.textContent = 'Rock, Paper, or Scissors?';
     title.style.color = 'white';
+    messageBottom.textContent = 'Who will win, Man or MAchine?'
+    messageBottom.style.color = 'white'
 
 }
 
