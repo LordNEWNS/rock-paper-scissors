@@ -45,6 +45,7 @@ body {
     margin: 0;
     font-family: 'Black Ops One', cursive, sans-serif;
     letter-spacing: .25rem;
+    max-height: 100vh;
 }
 .bod {
     display: flex;
@@ -67,7 +68,8 @@ body {
     display: flex;
     justify-content: center;
     gap: 100px;
-    padding: 60px 0px;
+    padding-top: 61px;
+    padding-bottom: 12px;
     background: repeating-linear-gradient(110deg, rgba(255, 255, 255, 0.144), rgba(255, 255, 255, 0.144) 6%, black 6%, black 12%);
 }
 
@@ -100,6 +102,15 @@ a {
     box-shadow: 0 0 15px 10px rgba(209, 216, 223, 0.24);
 }
 
+#showMessage,
+#showMessage2 {
+    margin: 0;
+}
+
+#showMessage2 {
+    height: 34px;
+}
+
 #ROCK,
 #PAPER,
 #SCISSORS,
@@ -128,7 +139,7 @@ a {
     font-size: 70px;
     -webkit-text-stroke: 4px rgb(0, 0, 0);
     color: rgb(255, 255, 255);
-    margin-top: 84px;
+    margin-top: 2vh;
     margin-bottom: 10px;
 }
 
@@ -191,7 +202,7 @@ h3 {
 
 .headerFooter {
     display: flex;
-    height: 2vh;
+    height: 1.5vh;
     background-color: white;
     background: repeating-linear-gradient(70deg, white, white 6%, black 6%, black 12%);
 }
