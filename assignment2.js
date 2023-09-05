@@ -21,23 +21,26 @@ const bod = document.getElementById('bod');
             playerChoice = e.target.id;
             playRound();
         } else if (e.target.id === 'NEWGAME') {
-            location.reload() // refreshes page clearing game
+            backToStart()
         }
     });
 
 
-playThisManyTimes.addEventListener('keyup', function(e) {
+
+bod.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
-        const numberEntered = parseFloat(playThisManyTimes.value);
-        if (isNaN(numberEntered) || numberEntered < 1) {
-            alert('Please enter a number above 0')
-        } else {
-            numberOfRounds = numberEntered;
+        if (e.target.id === 'thisMany') {
+            const numberEntered = parseFloat(e.target.value);
+            if (isNaN(numberEntered) || numberEntered < 1) {
+                alert('Please enter a number above 0')
+            } else {
+                numberOfRounds = numberEntered;
+            }
+            playThisManyTimes.value = '';
+            goToGame()
+            
         }
-        playThisManyTimes.value = '';
-        goToGame()
     }
-    
 });
 
 // removes rounds input and replaces with buttons
@@ -77,7 +80,7 @@ function isGameOver() {
         // changes the large text to game over mesage
         title.textContent = getGameOverMessage();
         if (playerWins > playerLosses) {
-            title,color = winColor;
+            title.color = winColor;
         } else title.color = lossColor;
 
     }
@@ -109,14 +112,54 @@ function getCompChoice() {
     return(compChoice);
 };
 
+// resets the page to "best of?" card
 function backToStart() {
-    clearBod()
+    clearBod();
+    playerWins = 0;
+    playerLosses = 0;
+    draws = 0;
+    updateScoreBoard()
+    const howManyCard = document.createElement('div');
+    howManyCard.setAttribute('id', 'howMany');
+    const howManyh3 = document.createElement('h3');
+    howManyh3.textContent = 'Best of?';
+    howManyCard.appendChild(howManyh3);
+    const inputRoundsHere = document.createElement('input');
+    inputRoundsHere.setAttribute('type', 'number');
+    inputRoundsHere.setAttribute('id', 'thisMany');
+    howManyCard.appendChild(inputRoundsHere);
+    bod.appendChild(howManyCard);
+
 }
 
 function clearBod() {
     while (bod.firstChild) {
         bod.removeChild(bod.firstChild);
     };
+}
+
+function updateScoreBoard () {
+    let t = document.getElementById('tie');
+    setTimeout(() => {t.textContent = draws}, dellayInMs);
+    if (draws > 0) {
+        t.style.color = tieColor;
+    };
+    let w = document.getElementById('win');
+    setTimeout(() => {w.textContent = playerWins}, dellayInMs);
+    if (playerWins > 0) {
+        w.style.color = winColor;
+    };
+    let l = document.getElementById('lose');
+    setTimeout(() => {l.textContent = playerLosses}, dellayInMs);
+    if (playerLosses > 0) {
+        l.style.color = lossColor;
+    };
+    if (playerWins === 0 && draws === 0 && playerLosses === 0) {
+        l.style.color = 'black';
+        t.style.color = 'black';
+        w.style.color = 'black';
+    }
+
 }
 
 // gets the computers choice then checks it against the players to determin winner
@@ -132,11 +175,6 @@ function playRound() {
         setTimeout(() => {e.textContent = 'TIE!'}, dellayInMs);
         e.style.color = tieColor;
 
-        // change tie score
-        let t = document.getElementById('tie');
-        setTimeout(() => {t.textContent = draws}, dellayInMs);
-        t.style.color = tieColor;
-
         // change bottom message
         setTimeout(() => {e2.textContent = getDrawMessage()}, dellayInMs);
         e2.style.color = tieColor;
@@ -149,10 +187,6 @@ function playRound() {
         setTimeout(() => {e.textContent = 'WIN!'}, dellayInMs);
         e.style.color = winColor;
 
-        let t = document.getElementById('win');
-        setTimeout(() => {t.textContent = playerWins}, dellayInMs);
-        t.style.color = winColor;
-
         setTimeout(() => {e2.textContent = getWinMessage()}, dellayInMs);
         e2.style.color = winColor;
     } else {
@@ -161,12 +195,9 @@ function playRound() {
         setTimeout(() => {e.textContent = 'LOSS'}, dellayInMs); 
         e.style.color = lossColor;
 
-        let t = document.getElementById('lose');
-        setTimeout(() => {t.textContent = playerLosses}, dellayInMs);
-        t.style.color = lossColor;
-
         setTimeout(() => {e2.textContent = getLossMessage()}, dellayInMs);
         e2.style.color = lossColor;
     };
+    updateScoreBoard()
     isGameOver()
 };
