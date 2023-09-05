@@ -38,9 +38,10 @@ bod.addEventListener('keyup', (e) => {
                 alert('Please enter a number above 0')
             } else {
                 numberOfRounds = numberEntered;
+                goToGame()
             }
             playThisManyTimes.value = '';
-            goToGame()
+            
             
         }
     }
